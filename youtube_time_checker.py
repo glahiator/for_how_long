@@ -49,7 +49,7 @@ def get_durations( video_url : str ) -> None:
 
     
 def main() -> None:
-    get_durations("https://youtu.be/e_atyw0IDqg")
+    get_durations("https://youtu.be/q7Gv4J3FyYE")
 
 if __name__ == "__main__":
     main()

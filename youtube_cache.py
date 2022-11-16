@@ -7,7 +7,7 @@ class YoutubeCache():
         self.cache = {}
         self.__load_cache()
 
-    def check_in_cache(self, channel_id : str) -> str :
+    def check_in_cache(self, channel_id : str) -> str :        
         return channel_id in self.cache.keys()
 
     def get_from_cache(self, channel_id : str) -> tuple:
@@ -28,7 +28,7 @@ class YoutubeCache():
     def __save_cache(self):
         cache_file = 'youtube_cache.json'
         with open(cache_file, "w", encoding='utf-8', newline='') as fp:
-            json.dump(self.cache, fp, ensure_ascii=False)
+            json.dump(self.cache, fp, ensure_ascii=False, indent=4)
 
 
 if __name__ == "__main__":
