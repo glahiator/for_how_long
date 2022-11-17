@@ -13,7 +13,7 @@ class YoutubeHandler:
         self.youtube = build('youtube', 'v3', developerKey=self.__api_key)
         self.cache = YoutubeCache()
 
-    def get_chanel_id(self, vid_url: str) -> tuple[str, str]:
+    def get_chanel_id(self, vid_url: str) :
         channel_id = ""
         channel_title = ""
         request = self.youtube.videos().list(
@@ -27,7 +27,7 @@ class YoutubeHandler:
             print('Error response status code : {0}, reason : {1}'.format(e.status_code, e.error_details))
         return channel_id, channel_title
 
-    def get_uploads_id(self, user_id: str) -> tuple[str, int]:
+    def get_uploads_id(self, user_id: str) :
         uploads_id = ""
         video_count = 0
         request = self.youtube.channels().list(
@@ -41,7 +41,7 @@ class YoutubeHandler:
             print('Error response status code : {0}, reason : {1}'.format(e.status_code, e.error_details))
         return uploads_id, video_count
 
-    def get_all_videos_ids(self, playlist_id: str) -> list:
+    def get_all_videos_ids(self, playlist_id: str) :
         request = self.youtube.playlistItems().list(
             part="contentDetails",
             playlistId=playlist_id,
@@ -66,7 +66,7 @@ class YoutubeHandler:
             print(f"Error! Not equal sizes: {len(videos)} != {all_videos}")
         return videos
 
-    def get_video_duration(self, video_id: str) -> str:
+    def get_video_duration(self, video_id: str):
         duration = ""
         request = self.youtube.videos().list(
             part="contentDetails",
@@ -78,7 +78,7 @@ class YoutubeHandler:
             print('Error response status code : {0}, reason : {1}'.format(e.status_code, e.error_details))
         return duration
 
-    def get_all_videos_duration(self, video_id: str) -> dict:
+    def get_all_videos_duration(self, video_id: str) :
         channel_id, channel_title = self.get_chanel_id(video_id)
         uploads_id, video_count = self.get_uploads_id(channel_id)
         if self.cache.check_in_cache(channel_id):

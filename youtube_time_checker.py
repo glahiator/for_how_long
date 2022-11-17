@@ -1,11 +1,6 @@
 from youtube_handler import YoutubeHandler
-import datetime
-import aiogram
-import logging
-import configparser
-
 from aiogram import Bot, Dispatcher, executor, types
-import emoji
+import datetime, logging, configparser, emoji
 
 ok = emoji.emojize(":check_mark:")
 warn = emoji.emojize(":red_exclamation_mark:")
