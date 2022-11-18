@@ -80,6 +80,8 @@ class YoutubeHandler:
 
     def get_all_videos_duration(self, video_id: str) :
         channel_id, channel_title = self.get_chanel_id(video_id)
+        if channel_id == "":
+            return {"title": 0, "counts" : 0, "duration" : 0.0}
         uploads_id, video_count = self.get_uploads_id(channel_id)
         if self.cache.check_in_cache(channel_id):
             curr_cache = self.cache.get_from_cache(channel_id)
