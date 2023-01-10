@@ -1,6 +1,6 @@
 # Youtube channel all video duration counter Telegram Bot
 **A Telegram bot counts the duration of all videos from the received channel*
-- Find it on Telegram as [For How Lone](https://t.me/for_how_long_bot)
+- Find it on Telegram as [For How Long](https://t.me/for_how_long_bot)
 
 ## Features
 - [X] Using youtube data API.
